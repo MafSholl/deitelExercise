@@ -12,7 +12,8 @@ public class UserScoreApp {
         int rightAnswerCount = 0;
         int wrongAnswerCount = 0;
 
-        for(int loop = 1; loop <= 10; loop++) {
+        int loop = 1;
+        while (loop <= 10) {
             int operand1 = random.nextInt(50);
             int operand2 = random.nextInt(50);
             int operator = random.nextInt(4);
@@ -63,8 +64,8 @@ public class UserScoreApp {
                     }
                     break;
             }
+            loop++;
         }
-
         System.out.printf("Correct answers: %d%n", rightAnswerCount);
         System.out.printf("Wrong answers: %d%n", wrongAnswerCount);
         System.out.printf("Adjusted Score: %d%n", rightAnswerCount - wrongAnswerCount);
