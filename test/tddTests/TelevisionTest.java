@@ -118,4 +118,13 @@ public class TelevisionTest {
         myTele.increaseChannel();
         assertEquals(1, myTele.getChannel());
     }
+    @Test
+    public void decreaseChannelTest(){
+        Television myTele = new Television();
+        myTele.togglePower();
+        myTele.increaseChannel();
+        myTele.increaseChannel();
+        myTele.decreaseChannel();
+        assertEquals(1, myTele.getChannel());
+    }
 }

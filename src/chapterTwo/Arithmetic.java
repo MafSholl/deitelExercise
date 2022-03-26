@@ -6,10 +6,10 @@ public class Arithmetic {
 	public static void main (String[] args) {
 		Scanner user = new Scanner(System.in);
 		
-		System.out.print("Enter the first integer: ");
+//		System.out.print("Enter the first integer: ");
 		int number1 = user.nextInt();
 		
-		System.out.print("Enter the second integer: ");
+//		System.out.print("Enter the second integer: ");
 		int number2 = user.nextInt();
 
 		int square1 = number1 * number1;

@@ -18,5 +18,4 @@ public class Account {
         if (amount > 0)
         balance = balance - amount;
     }
-
 }

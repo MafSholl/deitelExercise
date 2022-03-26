@@ -9,26 +9,156 @@ public class BikeTest {
     @Test
     public void turnOnTest() {
         Bike myBike = new Bike ();
-        myBike.turnOn ();
+        myBike.power();
         assertEquals(true, myBike.isOn());
     }
     @Test
     public void turnOffTest (){
         Bike myBike = new Bike ();
-        myBike.turnOff();
+        myBike.power();
+        myBike.power();
         assertEquals(false, myBike.isOn());
     }
     @Test
     public void accelerateTest(){
         Bike myBike = new Bike();
+        myBike.power();
         myBike.accelerate();
-        assertEquals(1, myBike.getSpeed());
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        assertEquals(5, myBike.getSpeed());
     }
     @Test
-    public void GearTest () {
+    public void gearOneTest () {
         Bike myBike = new Bike();
-        //myBike.setGear(21);
-        myBike.gear(90);
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        assertEquals("Gear 1", myBike.getGear());
+    }
+
+    @Test
+    public void gearTwoTest () {
+        Bike myBike = new Bike();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        assertEquals("Gear 2", myBike.getGear());
+    }
+    @Test
+    public void gearThreeTest () {
+        Bike myBike = new Bike();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        assertEquals("Gear 3", myBike.getGear());
+    }
+    @Test
+    public void gearFourTest () {
+        Bike myBike = new Bike();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+        myBike.accelerate();
+
+        myBike.accelerate();
         assertEquals("Gear 4", myBike.getGear());
     }
 }

@@ -121,14 +121,14 @@ public class Television {
     }
     public void increaseChannel(){
         if (isOn) {
-            if (channel >= 1 && channel < 100) {
-                channel +=;
+            if (channel >= 0 && channel < 100) {
+                channel++;
             }
         }
     }
     public void decreaseChannel(){
         if(isOn) {
-            if (channel > 0 && channel < 100){
+            if (channel >= 0 && channel < 100){
                 channel --;
             }
         }

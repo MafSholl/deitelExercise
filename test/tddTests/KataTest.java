@@ -3,6 +3,7 @@ package tddTests;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class KataTest{
@@ -26,11 +27,38 @@ public class KataTest{
         assertEquals(11, result);
     }
     @Test
-    public void evenNumbers(){
+    public void numbersFromOneToTen(){
         int number = 1;
         while (number <= 10) {
             number = number + 1;
             System.out.print(number + " ");
         }
     }
+    @Test
+    public void evenOrOddNumbersTest(){
+        Kata katakata = new Kata();
+        boolean result = katakata.evenOrOddNumber(22);
+        assertTrue(result);
+    }
+    @Test
+    public void biggestOfFiveNumbersTest(){
+        Kata katakata = new Kata();
+        int result = katakata.biggestOfFiveNumbers(5,4,3,2,11);
+        assertEquals(11,result);
+    }
+
+    @Test
+    public void numberOfHighestFactorTest(){
+        Kata katakata = new Kata();
+       int result = katakata.numberOfHighestFactor(10);
+        assertEquals(4, result);
+    }
+    @Test
+    public void primeNumberTest(){
+        Kata katakata = new Kata();
+        boolean result = katakata.primeNumberTest(5);
+        assertEquals(true, result);
+    }
+
+
 }

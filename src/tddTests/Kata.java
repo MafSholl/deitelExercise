@@ -67,4 +67,79 @@ public class Kata {
         int quotient = number1 / number2;;
         return quotient;
     }
+    public boolean evenOrOddNumber(int number){
+        int value = number%2;
+        if (value == 0){
+            return true;
+        }
+        return false;
+    }
+    public int biggestOfFiveNumbers(int first, int second, int third, int fourth, int fifth){
+        int biggestNumber = first;
+        if (second > biggestNumber) {biggestNumber = second;}
+        if (third >biggestNumber) {biggestNumber = third;}
+        if (fourth > biggestNumber) {biggestNumber = fourth;}
+        if (fifth > biggestNumber) {biggestNumber = fifth;}
+        return biggestNumber;
+//        if (fifth >)
+//            if (first > second) {
+//                if (first > third) {
+//                    if (first > third) {
+//                        if (first > fourth) {
+//                            if (first > fifth) {
+//                                return first;
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            else if (second > first) {
+//                if (second > third) {
+//                    if (second > fourth) {
+//                        if (second > fifth) {
+//                            return second;
+//                        }
+//                    }
+//                }
+//            }
+//            else if (third > first) {
+//                if (third > second) {
+//                    if (third > fourth) {
+//                        if (third > fifth) {
+//                            return third;
+//                        }
+//                    }
+//                }
+//            }
+//            else if (fourth > first) {
+//                if (fourth > second) {
+//                    if (fourth > third) {
+//                        if (fourth > fifth) {
+//                            return fourth;
+//                        }
+//                    }
+//                }
+//            }
+    }
+    public int numberOfHighestFactor(int input){
+        int counter = 1;
+        int factorCounter = 0;
+        while (counter <= input){
+          if (input%counter == 0){
+              factorCounter ++;
+          }
+          counter++;
+        } return factorCounter;
+    }
+
+    public boolean primeNumberTest(int input) {
+        int counter = 1;
+        while (counter <= input){
+            if (input%2 == 1 && input%3 != 0){
+                return true;
+            }
+            counter++;
+        }return false;
+//        for (int i = 1; int i <= input; i ++)
+    }
 }

@@ -4,23 +4,18 @@ package tddTests;
 
 public class AirConditioner {
 
-    private boolean power;
-    private int temperature;
+    private boolean isOn;
+    private int temperature = 16;
 
-    public void turnOn(boolean status) {
-        if (status == true) {
-            power = status;
+    public void power( ) {
+        if (!isOn) {
+            isOn = true;
         }
+        else isOn = false;
     }
 
-    public void turnOff(boolean status) {
-        if (status == false) {
-            power = status;
-        }
-    }
-
-    public boolean getStatus() {
-        return power;
+    public boolean getPower() {
+        return isOn;
     }
 
     public void setTemperature(int aTemperature) {
@@ -29,30 +24,24 @@ public class AirConditioner {
         }
     }
 
-    public void increaseTemperature(int input) {
-        int barrier = 30;
-        int aTemperature = 16;
-        if (aTemperature >= 16 && aTemperature <= 30) {
-            if (input >= 1 && input <= 14) {
-                    temperature = aTemperature + input;
+    public void increaseTemperature() {
+        if (isOn){
+            if (temperature >= 16 && temperature < 30) {
+            temperature ++;
             }
-
-            if (input > 14) {
-                temperature = barrier;
+            if (temperature == 30) {
+                temperature = 30;
             }
         }
     }
 
-    public void reduceTemperature(int input) {
-        int barrier = 16;
-        int aTemperature = 30;
-        if (aTemperature >= 16 && aTemperature <= 30) {
-            if (input >= 1 && input <= 14) {
-                temperature = aTemperature - input;
+    public void reduceTemperature() {
+        if (isOn) {
+            if (temperature > 16 && temperature <= 30) {
+                temperature --;
             }
-
-            if (input > 14) {
-                temperature = barrier;
+            if (temperature == 16) {
+                temperature = 16;
             }
         }
     }
