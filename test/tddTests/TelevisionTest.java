@@ -63,36 +63,46 @@ public class TelevisionTest {
     @Test
     public void increaseVolume() {
         Television myTele = new Television();
+        myTele.togglePower();
+        assertTrue(myTele.isOn());
         myTele.increaseVolume();
         assertEquals(1, myTele.getVolume());
     }
     @Test
     public void decreaseVolume() {
         Television myTele = new Television();
+        assertFalse(myTele.isOn());
+        myTele.togglePower();
+        assertTrue(myTele.isOn());
         myTele.increaseVolume();
         myTele.decreaseVolume();
         myTele.decreaseVolume();
-        assertEquals(0, myTele.getVolume());
-    }
-    /**@Test
-    public void muteOnTest() {
-        Television myTele = new Television();
-        myTele.increaseVolume();
-        myTele.isMute();
         assertEquals(0, myTele.getVolume());
     }
     @Test
-    public void muteOffTest() {
+    public void muteTest() {
         Television myTele = new Television();
+        myTele.togglePower();
         myTele.increaseVolume();
-        myTele.isMute();
-        myTele.isMute();
-        assertEquals(1, myTele.getVolume());
+        myTele.mute();
+        assertEquals(0, myTele.getVolume());
+    }
+    /**@Test
+    public void UnmuteTest() {
+        Television myTele = new Television();
+        myTele.togglePower();
+        myTele.increaseVolume();
+        myTele.increaseVolume();
+        myTele.increaseVolume();
+        myTele.mute();
+        myTele.mute();
+        assertEquals(3, myTele.getVolume());
     }**/
     @Test
     public void togglePowerOnTest(){
         Television myTele = new Television();
         myTele.isOn();
+        assertFalse(myTele.isOn());
         myTele.togglePower();
         assertTrue(myTele.isOn());
     }

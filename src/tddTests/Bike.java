@@ -2,7 +2,6 @@ package tddTests;
 
 public class Bike {
 
-
     private boolean isOn;
     private int speed;
     private String gear;
@@ -11,7 +10,7 @@ public class Bike {
         if (!isOn) {
             isOn = true;
         }
-        else isOn = false;
+        else {isOn = false;}
     }
 
     public boolean isOn() {
@@ -28,11 +27,11 @@ public class Bike {
                  speed += 3;
                  gear = "Gear 3";
              }
-             if(speed >= 20 && speed < 30) {
+             if(speed > 20 && speed < 30) {
                  speed += 2;
                  gear = "Gear 2";
              }
-             if(speed >= 0 && speed < 20) {
+             if(speed >= 0 && speed <= 20) {
                  speed += 1;
                  gear = "Gear 1";
              }

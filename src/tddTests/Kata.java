@@ -15,14 +15,12 @@ public class Kata {
          System.out.print("Number out of range");
          }
 
-        //First I compute the remainders of the number per digits
         int mod5 = number1 % 10;
         int mod4 = number1 % 100;
         int mod3 = number1 % 1000;
         int mod2 = number1 % 10000;
         int mod1 = number1 % 100000;
 
-        //I compute the
         int divTenThousands1 = mod1 / 10000;
         int divThousands2 = mod2 / 1000;
         int divHundreds3 = mod3 / 100;
@@ -81,46 +79,8 @@ public class Kata {
         if (fourth > biggestNumber) {biggestNumber = fourth;}
         if (fifth > biggestNumber) {biggestNumber = fifth;}
         return biggestNumber;
-//        if (fifth >)
-//            if (first > second) {
-//                if (first > third) {
-//                    if (first > third) {
-//                        if (first > fourth) {
-//                            if (first > fifth) {
-//                                return first;
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//            else if (second > first) {
-//                if (second > third) {
-//                    if (second > fourth) {
-//                        if (second > fifth) {
-//                            return second;
-//                        }
-//                    }
-//                }
-//            }
-//            else if (third > first) {
-//                if (third > second) {
-//                    if (third > fourth) {
-//                        if (third > fifth) {
-//                            return third;
-//                        }
-//                    }
-//                }
-//            }
-//            else if (fourth > first) {
-//                if (fourth > second) {
-//                    if (fourth > third) {
-//                        if (fourth > fifth) {
-//                            return fourth;
-//                        }
-//                    }
-//                }
-//            }
     }
+
     public int numberOfHighestFactor(int input){
         int counter = 1;
         int factorCounter = 0;

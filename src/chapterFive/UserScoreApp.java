@@ -14,9 +14,9 @@ public class UserScoreApp {
 
         int loop = 1;
         while (loop <= 10) {
-            int operand1 = random.nextInt(50);
-            int operand2 = random.nextInt(50);
-            int operator = random.nextInt(4);
+            int operand1 = 1 + random.nextInt(50);
+            int operand2 = 1 + random.nextInt(50);
+            int operator = 1 + random.nextInt(3);
 
             int computedAnswer = 0;
 
@@ -43,7 +43,7 @@ public class UserScoreApp {
                     }
                     break;
                 case 3:
-                    System.out.printf("%d %s %d %s ", operand1, "*", operand2, "=");
+                    System.out.printf("%d %s %d %s ", operand1, "X", operand2, "=");
                     userAnswer = input.nextInt();
                     computedAnswer = operand1 * operand2;
                     if (computedAnswer == userAnswer) {

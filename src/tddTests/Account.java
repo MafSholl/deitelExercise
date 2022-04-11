@@ -3,7 +3,6 @@ package tddTests;
 public class Account {
 
     private int balance;
-    private int withdraw;
 
     public void deposit(int amount) {
         if (amount > 0) {

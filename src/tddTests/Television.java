@@ -10,13 +10,14 @@ public class Television {
     private int brightness;
     private int contrast;
     private int volume;
-    private int resolution;
+    private boolean isMute;
     private int channel;
 
     public void togglePower() {
         if (!isOn) {
             isOn = true;
-        } else {
+        }
+        else {
             isOn = false;
         }
     }
@@ -49,10 +50,11 @@ public class Television {
     }
 
     public void decreaseBrightness() {
-        if (isOn)
+        if (isOn) {
             if (brightness >= 0 && brightness < 100) {
                 brightness--;
             }
+        }
     }
 
     public int getBrightness() {
@@ -87,18 +89,15 @@ public class Television {
 
     public void increaseVolume() {
         if (isOn) {
-            if (volume > 0 && volume < 100) {
+            if (volume >= 0 && volume < 100) {
                 volume = volume + 1;
-            }
-             else {
-                volume = volume;
             }
         }
     }
 
     public void decreaseVolume() {
         if (isOn) {
-            if (volume > 0 && volume < 100) {
+            if (volume > 0 && volume <= 100) {
                 volume = volume - 1;
             }
             else {
@@ -136,5 +135,15 @@ public class Television {
 
     public int getChannel() {
         return channel;
+    }
+
+    public boolean mute(){
+        if(isOn) {
+            if (!isMute) {
+                volume = 0;
+            } else {
+                volume = getVolume();
+            }
+        }return isMute;
     }
 }
