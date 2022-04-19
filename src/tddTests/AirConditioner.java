@@ -1,6 +1,7 @@
 package tddTests;
 
 
+import java.util.Scanner;
 
 public class AirConditioner {
 
@@ -49,4 +50,6 @@ public class AirConditioner {
     public int getTemperature() {
         return temperature;
     }
+
+
 }

@@ -4,7 +4,7 @@ import java.security.SecureRandom;
 
 public class DiceGame {
 
-    private static String status;
+    private String status;
     public  int sumOfDices;
     private  int userPoint;
     private int diceNumber;
@@ -100,17 +100,46 @@ public class DiceGame {
         return isGame;
     }
 
-    public void firstThrow() {
-        if(isGame){
+    public String getGameStatus(){
+        return status;
+    }
+
+    public void DiceThrow() {
+        if(startGame){
             if(throwCount == 0) {
                 setDiceOneValue(dice1);
                 setDiceTwoValue(dice2);
-                System.out.println(dice1);
-                System.out.println(dice2);
+//                System.out.println(dice1);
+//                System.out.println(dice2);
+//                System.out.println(sumOfDices);
                 addingTwoDicesNumberTogether();
             }
         }
     }
+    public void firstThrowAndSubsequesntThrowScenarios(){
+        DiceThrow();
+        if (sumOfDices == 7 || sumOfDices == 11){
+            status = "Win";
+        }else if (sumOfDices == 2 || sumOfDices == 3 || sumOfDices == 12){
+            status = "Lose";
+        }else {
+            loopMethodForOtherCaseScenariosAfterFirst(dice1, dice2);
+        }
+    }
 
-
+    public void loopMethodForOtherCaseScenariosAfterFirst(int dice1, int dice2) {
+        this.dice1 = dice1;
+        this.dice2 = dice2;
+        int userPoint = sumOfDices;
+//        System.out.println(sumOfDices);
+        do {
+            DiceThrow();
+            System.out.println(sumOfDices);
+        } while (sumOfDices != userPoint && sumOfDices != 7);
+        if (sumOfDices == userPoint) {
+            status ="Win!";
+        } else {
+            status = "Lose!";
+        }
+    }
 }

@@ -100,6 +100,31 @@ public class Kata {
             }
             counter++;
         }return false;
-//        for (int i = 1; int i <= input; i ++)
+    }
+
+    public static void printingPrimeNumber(){
+        int loop = 2;
+        while(loop <= 100){
+            if(loop/2 == 1 && loop%2 == 0){
+                System.out.print(loop + ", ");
+            }
+            if(loop/3 == 1 && loop%3 == 0){
+                System.out.print(loop + ", ");
+            }
+            if(loop/5 == 1 && loop%5 == 0){
+                System.out.print(loop + ", ");
+            }
+            if(loop/7 == 1 && loop%7 == 0){
+                System.out.print(loop + ", ");
+            }
+            if (loop%2 == 1 && loop%3 != 0 && loop%5 != 0 && loop%7 != 0){
+                System.out.print(loop + ", ");
+            }
+            loop++;
+        }
+    }
+
+    public static void main(String[] args) {
+        printingPrimeNumber();
     }
 }

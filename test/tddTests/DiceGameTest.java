@@ -48,25 +48,91 @@ public class DiceGameTest {
         assertEquals(true, newGame.isGame());
         newGame.setDiceOneValue(2);
         newGame.setDiceTwoValue(7);
-        newGame.firstThrow();
+        newGame.DiceThrow();
         assertEquals(9, newGame.getSumOfDices());
     }
 
     @Test
     public void onFirstThrowSumOfSevenIsAWin(){
-        newGame.setDiceOneValue(5);
-        newGame.setDiceTwoValue(11);
-        newGame.firstThrow();
-        newGame.sevenIsaWinOnFirstThrow();
-        assertEquals("You Win", newGame.getGameStatus());
+        newGame.gameStarter();
+        assertTrue(newGame.isGame());
+        newGame.setDiceOneValue(4);
+        newGame.setDiceTwoValue(3);
+        newGame.firstThrowAndSubsequesntThrowScenarios();
+        assertEquals("Win", newGame.getGameStatus());
     }
-//
-//    @Test
-//    public void methodToPlayTheGame(){
-//        newGame.gamePlay();
-//        assertEquals("In Game", newGame.getGamePlay());
-//
-//    }
+
+    @Test
+    public void onFirstThrowSumOfElevenIsAWin(){
+        newGame.gameStarter();
+        assertTrue(newGame.isGame());
+        newGame.setDiceOneValue(2);
+        newGame.setDiceTwoValue(9);
+        newGame.firstThrowAndSubsequesntThrowScenarios();
+        assertEquals("Win", newGame.getGameStatus());
+    }
+    @Test
+    public void onFirstThrowSumOTwoIsALose(){
+        newGame.gameStarter();
+        assertTrue(newGame.isGame());
+        newGame.setDiceOneValue(1);
+        newGame.setDiceTwoValue(1);
+        newGame.firstThrowAndSubsequesntThrowScenarios();
+        assertEquals("Lose", newGame.getGameStatus());
+    }
+    @Test
+    public void onFirstThrowSumOThreeIsALose(){
+        newGame.gameStarter();
+        assertTrue(newGame.isGame());
+        newGame.setDiceOneValue(2);
+        newGame.setDiceTwoValue(1);
+        newGame.firstThrowAndSubsequesntThrowScenarios();
+        assertEquals("Lose", newGame.getGameStatus());
+    }
+
+    @Test
+    public void onFirstThrowSumOTwelveIsALose(){
+        newGame.gameStarter();
+        assertTrue(newGame.isGame());
+        newGame.setDiceOneValue(6);
+        newGame.setDiceTwoValue(6);
+        newGame.firstThrowAndSubsequesntThrowScenarios();
+        assertEquals("Lose", newGame.getGameStatus());
+    }
+    @Test
+    public void previousUserpointInloopMethodForSubsequentThrowsWinsTest(){
+        newGame.gameStarter();
+        assertTrue(newGame.isGame());
+        newGame.setDiceOneValue(2);
+        newGame.setDiceTwoValue(2);
+        newGame.DiceThrow();
+        assertEquals(4, newGame.getSumOfDices());
+        newGame.loopMethodForOtherCaseScenariosAfterFirst(2,2);
+        assertEquals("Win!", newGame.getGameStatus());
+    }
+    @Test
+    public void sevenAsSumOfDicesInloopMethodForSubsequentThrowsLoseTest(){
+        newGame.gameStarter();
+        assertTrue(newGame.isGame());
+        newGame.setDiceOneValue(2);
+        newGame.setDiceTwoValue(2);
+        newGame.DiceThrow();
+        assertEquals(4, newGame.getSumOfDices());
+        newGame.loopMethodForOtherCaseScenariosAfterFirst(3,4);
+        assertEquals("Lose!", newGame.getGameStatus());
+    }
+    @Test
+    public void infiniteloopContinueIfSumIsNotUserpointForSubsequentThrowsTest(){
+        newGame.gameStarter();
+        assertTrue(newGame.isGame());
+        newGame.setDiceOneValue(2);
+        newGame.setDiceTwoValue(2);
+        newGame.DiceThrow();
+        assertEquals(4, newGame.getSumOfDices());
+        newGame.loopMethodForOtherCaseScenariosAfterFirst(2,3);
+        assertEquals("Win!", newGame.getGameStatus());
+    }
+
 
 
 }
