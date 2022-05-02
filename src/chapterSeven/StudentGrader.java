@@ -12,13 +12,11 @@ public class StudentGrader {
     public static void arrayInitializer(int studentNumber, int  subjectNumber){
         noOfStudent = studentNumber;
         noOfSubjects = subjectNumber;
-//        this.noOfStudent = noOfStudent;
-//        this.noOfSubjects = noOfSubjects;
 //        System.out.println("Enter the number of your student: ");
 //        input = new Scanner(System.in);
-//        noOfStudent = input.nextInt();
+//        studentNumber = input.nextInt();
 //        System.out.print("Enter the number of your student: ");
-//        noOfSubjects = input.nextInt();
+//        subjectNumber = input.nextInt();
 //        System.out.println();
         studentGrades = new int[noOfStudent][noOfSubjects];
     }
@@ -89,8 +87,6 @@ public class StudentGrader {
         }
     }
 
-
-
     public static void totalArrayLoader(){
         totalArray = new int[noOfStudent];
         for(int i = 0 ; i < noOfStudent; i++){
@@ -103,25 +99,28 @@ public class StudentGrader {
         }
     }
 
-    public static void highestToLowestArrayLoader() {
+    public static void positionArrayLoader() {
         positionArray = new int[noOfStudent];
-        int highestNumber;
-        for (int i = 0; i < noOfStudent; i++) {
-            highestNumber = totalArray[i];
-            for (int j = i; j < noOfStudent; j++) {
-                if (totalArray[j] != positionArray[i]) {
-                    if (totalArray[j] > highestNumber) {
-                        highestNumber = totalArray[j];
-//                    positionArray[j] = highestNumber;
-                    }
+        for(int i = 0; i < totalArray.length; i++){
+           positionArray[i] = totalArray[i];
+            System.out.println("Pos check " + i + " " + positionArray[i]);
+        }
+        System.out.println();
+        boolean flag = true;
+        int temp;
+        for(int i = 0; i < positionArray.length; i++) {
+//            flag = false;
+            for (int j = 0; j < positionArray.length-1; j++) {
+                if (positionArray[j] < positionArray[j+1]) {
+                   temp = positionArray[j];
+                   positionArray[j] = positionArray[j+1];
+                   positionArray[j+1] = temp;
+//                   flag = true;
                 }
             }
-            for (int k = i; k < noOfStudent; k++) {
-                if (highestNumber > positionArray[i]) {
-                    positionArray[i] = highestNumber;
-                }
-                System.out.println("Pos Array " + positionArray[i]);
-            }
+        }
+        for(int i = 0; i < positionArray.length; i++){
+            System.out.println("Pos Array " + i + " " + positionArray[i]);
         }
     }
 
@@ -174,6 +173,6 @@ public class StudentGrader {
         averageGradeCalculator();
         totalArrayLoader();
 //        positionCalculator();
-        highestToLowestArrayLoader();
+        positionArrayLoader();
     }
 }

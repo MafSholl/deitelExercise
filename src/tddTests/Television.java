@@ -137,13 +137,13 @@ public class Television {
         return channel;
     }
 
-    public boolean mute(){
+    public void mute(){
         if(isOn) {
             if (!isMute) {
                 volume = 0;
             } else {
                 volume = getVolume();
             }
-        }return isMute;
+        }
     }
 }

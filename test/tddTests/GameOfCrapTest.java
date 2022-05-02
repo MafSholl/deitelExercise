@@ -5,16 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DiceGameTest {
-    public DiceGame newGame;
+public class GameOfCrapTest {
+    public GameOfCrap newGame;
     @BeforeEach
-    public void gamer() {newGame = new DiceGame();
+    public void gamer() {newGame = new GameOfCrap();
     }
 
     @Test
     public void randomlyGeneratingDiceNumberMethodWorksTest(){
         newGame.randomDiceNumberGenerator();
-        assertEquals(DiceGame.diceNom, newGame.getRandomDiceNumber());
+        assertEquals(GameOfCrap.diceNom, newGame.getRandomDiceNumber());
     }
 
     @Test
@@ -38,14 +38,14 @@ public class DiceGameTest {
     public void addingDiceNumbersTogetherWorksTest(){
         newGame.setDiceOneValue(4);
         newGame.setDiceTwoValue(7);
-        newGame.addingTwoDicesNumberTogether();
+        newGame.setSumOfDices();
         assertEquals(11, newGame.getSumOfDices());
     }
 
     @Test
     public void firstThrowTest(){
         newGame.gameStarter();
-        assertEquals(true, newGame.isGame());
+        assertTrue(newGame.isGame());
         newGame.setDiceOneValue(2);
         newGame.setDiceTwoValue(7);
         newGame.DiceThrow();

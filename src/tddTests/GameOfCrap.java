@@ -2,7 +2,7 @@ package tddTests;
 
 import java.security.SecureRandom;
 
-public class DiceGame {
+public class GameOfCrap {
 
     private String status;
     public  int sumOfDices;
@@ -62,7 +62,7 @@ public class DiceGame {
     }
 
 
-    public int addingTwoDicesNumberTogether() {
+    public int setSumOfDices() {
         int sumOfDices = dice1 + dice2;
         this.sumOfDices = sumOfDices;
 
@@ -112,7 +112,7 @@ public class DiceGame {
 //                System.out.println(dice1);
 //                System.out.println(dice2);
 //                System.out.println(sumOfDices);
-                addingTwoDicesNumberTogether();
+                setSumOfDices();
             }
         }
     }
