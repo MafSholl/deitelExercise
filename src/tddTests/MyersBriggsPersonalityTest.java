@@ -15,12 +15,16 @@ public class MyersBriggsPersonalityTest {
     private static int jCount = 0;
     private static int pCount = 0;
 
+    public static void main(String[] args) {
+        runMyersBriggsApplication();
+    }
 
     public static void instructionPrompt() {
         System.out.println("Select either of the two options. Enter either \"A\" or \"B\"");
     }
 
     public static void runMyersBriggsApplication(){
+        instructionPrompt();
         while (questionCount <= 20 ) {
             question();
             userResponse();

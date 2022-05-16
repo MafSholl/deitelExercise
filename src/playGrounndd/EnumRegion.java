@@ -1,7 +1,7 @@
 package playGrounndd;
 
 public enum EnumRegion {
-    SE("Agege", "ipaja"), SS, SW, NE, NW, NC;
+    SE("Agege", "ipaja"), SS(), SW, NE, NW, NC;
 
     private String[] states;
 

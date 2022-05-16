@@ -1,13 +1,10 @@
 package chapterSeven;
 
 public class SevenSegment {
-    private int number;
-    private String numberStr;
-    private int displayNumber;
-    private String displayOutputNumbers;
+    private String number = "11111111";
     private boolean isScreen;
     private boolean isArray;
-    private int [][] sevenSegment;
+    private final int [][] sevenSegment;
     private final int row = 5;
     private final int column = 4;
     private boolean isEmpty;
@@ -16,28 +13,23 @@ public class SevenSegment {
         this.sevenSegment = new int[row][column];
     }
 
-    public void setDisplayNumber(int number){
+    public void setDisplayNumber(String number){
         this.number = number;
     }
 
-    public void setDisplayNumberToString(){
-        this.numberStr = String.valueOf(number);
-        System.out.println(numberStr);
-    }
-
-    public char getDisplayNumberToString(int position) {
-        return numberStr.charAt(position);
+    public char getNumberAtAPosition(int position) {
+        return number.charAt(position);
     }
 
 
-    public int getNumber(){
+    public String getNumber(){
         return number;
     }
 
 
-    public void setDisplay(){
+    public void isScreen(){
 //        if(String.valueOf(number).contains("5")
-        if(numberStr.charAt(7)=='1'){
+        if(number.charAt(7)=='1'){
             isScreen = true;
         }
         else {
@@ -49,9 +41,6 @@ public class SevenSegment {
     public boolean getScreenDisplay() {
         return isScreen;
     }
-//    public void createArray() {
-//        int[][] sevenSegment = new int[][];
-//    }
 
     public void arrayChecker(){
         if (sevenSegment.length == 5 ){
@@ -68,12 +57,15 @@ public class SevenSegment {
     }
 
     public void arrayLoader() {
-        int num = 1;
-        for(int i = 0; i < row; i++){
-            for(int j = 0; j < column; j++){
-                sevenSegment[i][j] = num;
-                num++;
-            }
+        setDisplayNumber(number);
+        if(number.charAt(7) == '1') {
+            segmentALoader();
+            segmentBLoader();
+            segmentCLoader();
+            segmentDLoader();
+            segmentELoader();
+            segmentFLoader();
+            segmentGLoader();
         }
     }
 
@@ -95,7 +87,7 @@ public class SevenSegment {
     }
 
     public void segmentALoader() {
-        if(numberStr.charAt(0) == '1') {
+        if(number.charAt(0) == '1') {
             for (int i = 0; i <= 0; i++) {
                 for (int j = 0; j < 4; j++) {
                     sevenSegment[i][j] = 1;
@@ -103,50 +95,116 @@ public class SevenSegment {
             }
         }
     }
+
     public void segmentBLoader() {
-//        if(numberStr.charAt(1) == '1') {
+        if(number.charAt(1) == '1') {
             for (int i = 0; i < 3; i++) {
                 for (int j = 3; j <= 3; j++) {
                     sevenSegment[i][j] = 1;
                 }
             }
-//        }
+        }
     }
 
     public void segmentCLoader() {
-        for(int i = 2; i < 5; i++){
-            for(int j = 3; j <= 3; j++){
-                sevenSegment[i][j] =  1;
+        if(number.charAt(2) == '1') {
+            for (int i = 2; i < 5; i++) {
+                for (int j = 3; j <= 3; j++) {
+                    sevenSegment[i][j] = 1;
+                }
             }
         }
     }
+
     public void segmentDLoader() {
-        for(int i = 4; i <= 4; i++){
-            for(int j = 0; j < 4; j++){
-                sevenSegment[i][j] =  1;
+        if(number.charAt(3) =='1') {
+            for (int i = 4; i <= 4; i++) {
+                for (int j = 0; j < 4; j++) {
+                    sevenSegment[i][j] = 1;
+                }
             }
         }
     }
+
     public void segmentELoader() {
-        for(int i = 2; i < 5; i++){
-            for(int j = 0; j < 5; j++){
-                sevenSegment[i][j] =  1;
+        if(number.charAt(4) == '1') {
+            for (int i = 2; i < 5; i++) {
+                for (int j = 0; j <= 0; j++) {
+                    sevenSegment[i][j] = 1;
+                }
             }
         }
     }
     public void segmentFLoader() {
-        for(int i = 0; i <= 0; i++){
-            for(int j = 0; j < 3; j++){
-                sevenSegment[i][j] =  1;
-            }
-        }
-    }
-    public void segmentGLoader() {
-        for(int i = 2; i <= 2; i++){
-            for(int j = 0; j < 4; j++){
-                sevenSegment[i][j] =  1;
+        if(number.charAt(5) == '1') {
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j <= 0; j++) {
+                    sevenSegment[i][j] = 1;
+                }
             }
         }
     }
 
+    public void segmentGLoader() {
+        if(number.charAt(6) == '1') {
+            for (int i = 2; i <= 2; i++) {
+                for (int j = 0; j < 4; j++) {
+                    sevenSegment[i][j] = 1;
+                }
+            }
+        }
+    }
+
+    private void rowOneDisplay() {
+        for(int i = 0; i <= 0; i++){
+            for(int j = 0; j < 4; j++){
+                System.out.print(sevenSegment[i][j] + "   ");
+            }
+            System.out.println();
+        }
+    }
+
+    private void rowTwoDisplay() {
+        for(int i = 1; i <= 1; i++){
+            for(int j = 0; j < 4; j++){
+                System.out.print(sevenSegment[i][j] + "   ");
+            }
+            System.out.println();
+        }
+    }
+
+    private void rowThreeDisplay() {
+        for(int i = 2; i <= 2; i++){
+            for(int j = 0; j < 4; j++){
+                System.out.print(sevenSegment[i][j] + "   ");
+            }
+            System.out.println();
+        }
+    }
+
+    private void rowFourDisplay() {
+        for(int i = 3; i <= 3; i++){
+            for(int j = 0; j < 4; j++){
+                System.out.print(sevenSegment[i][j] + "   ");
+            }
+            System.out.println();
+        }
+    }
+
+    private void rowFiveDisplay() {
+        for(int i = 4; i <= 4; i++){
+            for(int j = 0; j < 4; j++){
+                System.out.print(sevenSegment[i][j] + "   ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void arrayDisplay() {
+        rowOneDisplay();
+        rowTwoDisplay();
+        rowThreeDisplay();
+        rowFourDisplay();
+        rowFiveDisplay();
+    }
 }

@@ -28,39 +28,39 @@ public class StudentGraderTest {
     public void studentGraderArrayIsEmpty(){
         grader.arrayInitializer(3,3);
         assertNotNull(grader);
-        assertEquals(0, grader.getStudentGraderElement(0,0));
-        assertEquals(0, grader.getStudentGraderElement(0,1));
-        assertEquals(0, grader.getStudentGraderElement(0,2));
-        assertEquals(0, grader.getStudentGraderElement(1,0));
-        assertEquals(0, grader.getStudentGraderElement(1,1));
-        assertEquals(0, grader.getStudentGraderElement(1,2));
-        assertEquals(0, grader.getStudentGraderElement(2,0));
-        assertEquals(0, grader.getStudentGraderElement(2,1));
-        assertEquals(0, grader.getStudentGraderElement(2,2));
+        assertEquals(0, grader.getStudentGraderContent(0,0));
+        assertEquals(0, grader.getStudentGraderContent(0,1));
+        assertEquals(0, grader.getStudentGraderContent(0,2));
+        assertEquals(0, grader.getStudentGraderContent(1,0));
+        assertEquals(0, grader.getStudentGraderContent(1,1));
+        assertEquals(0, grader.getStudentGraderContent(1,2));
+        assertEquals(0, grader.getStudentGraderContent(2,0));
+        assertEquals(0, grader.getStudentGraderContent(2,1));
+        assertEquals(0, grader.getStudentGraderContent(2,2));
     }
 
     @Test
     public void studentGradesArrayCanBeLoadedTest(){
         grader.arrayInitializer(2,2);
-        assertEquals(0, grader.getStudentGraderElement(0,0));
+        assertEquals(0, grader.getStudentGraderContent(0,0));
         grader.studentGradeArrayLoader(0,0, 13);
-        assertEquals(13,grader.getStudentGraderElement(0,0));
+        assertEquals(13,grader.getStudentGraderContent(0,0));
     }
 
     @Test
     public void studentGradesCanBeLoadedMultipleTimesTest(){
         grader.arrayInitializer(2,2);
-        assertEquals(0, grader.getStudentGraderElement(0,0));
-        assertEquals(0, grader.getStudentGraderElement(0,1));
-        assertEquals(0, grader.getStudentGraderElement(1,0));
-        assertEquals(0, grader.getStudentGraderElement(1,1));
+        assertEquals(0, grader.getStudentGraderContent(0,0));
+        assertEquals(0, grader.getStudentGraderContent(0,1));
+        assertEquals(0, grader.getStudentGraderContent(1,0));
+        assertEquals(0, grader.getStudentGraderContent(1,1));
         grader.studentGradeArrayLoader(0,0,10);
         grader.studentGradeArrayLoader(0,1,15);
         grader.studentGradeArrayLoader(1,0,20);
         grader.studentGradeArrayLoader(1,1,30);
-        assertEquals(10, grader.getStudentGraderElement(0,0));
-        assertEquals(15, grader.getStudentGraderElement(0,1));
-        assertEquals(20, grader.getStudentGraderElement(1,0));
-        assertEquals(30, grader.getStudentGraderElement(1,1));
+        assertEquals(10, grader.getStudentGraderContent(0,0));
+        assertEquals(15, grader.getStudentGraderContent(0,1));
+        assertEquals(20, grader.getStudentGraderContent(1,0));
+        assertEquals(30, grader.getStudentGraderContent(1,1));
     }
 }
