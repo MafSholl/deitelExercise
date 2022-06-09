@@ -1,6 +1,7 @@
 package chapterSeven;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class StudentGrader {
 
@@ -15,6 +16,7 @@ public class StudentGrader {
     public static void arrayInitializer(int studentNumber, int  subjectNumber){
         noOfStudent = studentNumber;
         noOfSubjects = subjectNumber;
+//        Scanner input = new Scanner();
 //        System.out.println("Enter the number of your student: ");
 //        input = new Scanner(System.in);
 //        studentNumber = input.nextInt();
@@ -204,7 +206,7 @@ public class StudentGrader {
         int overallLowestScore = Integer.MAX_VALUE;
         int lowestScorerIdNum = 0;
         int lowestScoredSubjectNum = 0;
-
+        //      Highest and Lowest score/student summary part
         for(int a = 0; a < noOfSubjects; a++) {
             System.out.printf("Subject %d%n", a+1);
             int highestSubjectScore = studentGrades[0][a];
@@ -216,14 +218,15 @@ public class StudentGrader {
                 for (int j = a; j <= a; j++) {
                     if (highestSubjectScore < studentGrades[i + 1][j]){
                         highestSubjectScore = studentGrades[i + 1][j];
-                        highestStudentNumber = i + 1;
+                        highestStudentNumber = i + 2;
                     }
                     if(studentGrades[i + 1][j] < lowestSubjectScore){
                         lowestSubjectScore = studentGrades[i + 1][j];
-                        lowestStudentNumber = i + 1;
+                        lowestStudentNumber = i + 2;
                     }
                 }
             }
+            //      Highest and Lowest score/student summary part
             int subjectTotalScore = 0;
             double subjectAverageScore = 0;
             int subjectPassCount = 0;
@@ -337,8 +340,6 @@ public class StudentGrader {
             studentGradeLoader(10);
             totalArrayLoader();
             averageGradeLoader();
-//            totalGradeCalculator();
-//            averageGradeCalculator();
             positionCalculator();
             gradeTable();
             subjectSummary();

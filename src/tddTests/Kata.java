@@ -124,7 +124,14 @@ public class Kata {
         }
     }
 
+    private static int[] twentyArray = new int[20];
+
     public static void main(String[] args) {
-        printingPrimeNumber();
+//        printingPrimeNumber();
+
+        for(int i = 0; i < 20; i++){
+            System.out.print(twentyArray[i] + " ");
+        }
+
     }
 }

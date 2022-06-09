@@ -31,7 +31,7 @@ public class ArrayList implements List{
 
     private void createNewArrayWhenFull() {
         int formerLength = length;
-        int newLength = length * 2;
+        int newLength = length + 1;
         String [] db = new String[newLength];
         for (int i=0; i < formerLength; i++){
             db[i] = this.db[i];

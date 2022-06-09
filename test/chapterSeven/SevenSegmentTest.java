@@ -288,12 +288,16 @@ public class SevenSegmentTest {
         sevenSeggy.setDisplayNumber("111111111");
         sevenSeggy.arrayLoader();
         sevenSeggy.arrayDisplay();
+        System.out.println(
+
+        );
     }
     @Test
     public void fiveMethod(){
         sevenSeggy.setDisplayNumber("10110111");
         sevenSeggy.arrayLoader();
         sevenSeggy.arrayDisplay();
+        System.out.println();
     }
 
     @Test
@@ -301,6 +305,7 @@ public class SevenSegmentTest {
         sevenSeggy.setDisplayNumber("01100111");
         sevenSeggy.arrayLoader();
         sevenSeggy.arrayDisplay();
+        System.out.println();
     }
 
 }
