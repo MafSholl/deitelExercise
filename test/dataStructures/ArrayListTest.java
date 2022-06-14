@@ -115,6 +115,18 @@ public class ArrayListTest {
         assertEquals("pokeman", arrayList.get(4));
     }
 
+    @Test
+    public void getByElementMethodTest(){
+        arrayList.add(0, "shoes");
+        arrayList.add(1, "vibrator");
+        arrayList.add(2, "bra");
+        arrayList.add(3, "panties");
+        arrayList.add(4, "chocolate");
+        arrayList.add(5, "pokeman");
+        assertEquals("panties", arrayList.get("panties"));
+        assertNull(arrayList.get("bata"));
+    }
+
 
 
 }

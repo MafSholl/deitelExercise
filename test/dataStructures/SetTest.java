@@ -96,62 +96,36 @@ public class SetTest {
         assertFalse(set.containsAll(compared));
         Object[] compared2 = {3, 2, 4, 7};
         assertTrue(set.containsAll(compared2));
-        Object[] compared3 = {0, 3, 7, 1};
+        Object[] compared3 = {0, 2, 4, 7};
         assertFalse(set.containsAll(compared3));
     }
 
-//
-//    @Test
-//    public void arrayListCanAddMoreThanOneItemByIndexAndItemTest(){
-//        set.add(0, "rolex");
-//        set.add(1, "belt");
-//        assertEquals("rolex", set.get(0));
-//        assertEquals("belt", set.get(1));
-//    }
-//
-//
-//    @Test
-//    public void arrayListAddMethodOfIndexAndItemOnlySameReference(){
-//        set.add(0, "rolex");
-//        assertThrows(ClassCastException.class, ()-> set.add(1, 1));
-//    }
-//
-//    @Test
-//    public void arrayListAddMethodOfIndexAndItem_CanIncreaseSizeWhenFullTest(){
-//        set.add(0, "shoes");
-//        set.add(1, "vibrator");
-//        set.add(2, "bra");
-//        set.add(3, "panties");
-//        set.add(4, "chocolate");
-//        set.add(5, "pokeman");
-//        assertEquals("chocolate", set.get(4));
-//        assertEquals("pokeman", set.get(5));
-//    }
-//
-//    @Test
-//    public void arrayListCanRemoveByIndexTest(){
-//        set.add(0, "shoes");;
-//        set.remove(0);
-//        assertEquals(null, set.get(0));
-//    }
-//
-//    @Test
-//    public void arrayListSizeReducesArraySizeTest(){
-//        set.add(0, "shoes");
-//        set.add(1, "vibrator");
-//        set.add(2, "bra");
-//        set.add(3, "panties");
-//        set.add(4, "chocolate");
-//        set.add(5, "pokeman");
-//        set.remove(0);
-//        assertEquals("vibrator", set.get(0));
-//        assertEquals("bra", set.get(1));
-//        assertEquals("panties", set.get(2));
-//        assertEquals("chocolate", set.get(3));
-//        assertEquals("pokeman", set.get(4));
-//    }
+    @Test
+    public void removeMethodTest(){
+        Object[] test = {3, 2, 4, 7};
+        set.addAll(test);
+        assertTrue(set.remove(2));
+        assertFalse(set.remove(9));
+    }
 
+    @Test
+    public void removeAllTest(){
+        Object[] test = {1, 8, 4, 3, 2, 5, 6, 7};
+        set.addAll(test);
+        Object [] toBeRemoved = {3, 2, 4, 7};
+        Object [] toBeRemoved2 = {11, 1, 4, 7};
+        assertTrue(set.removeAll(toBeRemoved));
+        assertFalse(set.removeAll(toBeRemoved2));
 
+        Object[] testTwin = {1, 8, 5, 6};
+        assertTrue(set.containsAll(testTwin));
+    }
 
-
+    @Test
+    public void setCannotTakeDoubleValueTest(){
+        Object[] test = {1, 8, 4, 3, 2, 5, 6, 7};
+        set.addAll(test);
+        assertFalse(set.add(1));
+        assertTrue(set.add(20));
+    }
 }

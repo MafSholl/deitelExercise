@@ -87,6 +87,7 @@ public class TictactoeMain {
                 if(playerOneInput > 9) System.out.println("Number out of range! Play figures between 1 & 9");
             }
             while (playerOneInput == 0 || playerOneInput > 9);
+
             player1.play(playerOneInput, ticTacToe.getBoard());
             ticTacToe.displayBoard();
             ticTacToe.gameStatus();

@@ -2,6 +2,7 @@ package chapterEight;
 
 import java.util.Scanner;
 
+import static chapterEight.TicTacToe.getValueAt;
 import static chapterEight.Value.EMPTY;
 
 public class Player1 implements Player{
@@ -22,27 +23,19 @@ public class Player1 implements Player{
             else if (position == 7) board[2][0] = X;
             else if (position == 8) board[2][1] = X;
             else if (position == 9) board[2][2] = X;
-        }else{
-            System.out.println("Square already filled");
-            System.out.println("Enter another number");
-            Scanner input = new Scanner(System.in);
-            int newInput = input.nextInt();
-            position = newInput;
-            play(position, board);
         }
+//        else{
+//            System.out.println("Square already filled");
+//            System.out.println("Enter another number");
+//            Scanner input = new Scanner(System.in);
+//            int newInput = input.nextInt();
+//            position = newInput;
+//            play(position, board);
+//        }
     }
 
     private Value getValueAtIndex(int position, Value[][] board) {
-        if (position == 1) return board[0][0];
-        else if (position == 2) return board[0][1];
-        else if (position == 3) return board[0][2];
-        else if (position == 4) return board[1][0];
-        else if (position == 5) return board[1][1];
-        else if (position == 6) return board[1][2];
-        else if (position == 7) return board[2][0];
-        else if (position == 8) return board[2][1];
-        else if (position == 9) return board[2][2];
-        return EMPTY;
+        return getValueAt(position, board);
     }
 
 }

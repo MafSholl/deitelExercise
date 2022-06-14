@@ -22,6 +22,18 @@ public class ArrayList {
         return container[index];
     }
 
+    public Object get(Object element){
+        Object returnee = null;
+        if (length == 0) throw new NullPointerException("Item does not exist in the index entered");
+        for (int i  = 0; i < count; i++){
+            if(container[i] == element) {
+                returnee = container[i];
+                break;
+            };
+        }
+        return returnee;
+    }
+
     public void add(Object item) {
         if (count == 0){
             length = 5;
@@ -49,27 +61,66 @@ public class ArrayList {
             container[index] = item;
             isEmpty = false;
             count++;
-        }else if(count > 0 && count < length) {
+        }else if(count < length) {
             if (item.getClass() == container[0].getClass()) {
-                container[index] = item;
-                count++;
+                if(container[index] == null){
+                    container[index] = item;
+                    count++;
+                } else {
+                    for(int i = count; i > index; i--){
+                        container[i + 1] = container[i];
+                    }
+                    container[index] = item;
+                    count++;
+                }
             }else {
                 throw new ClassCastException("Inconsistent object type!");
             }
-        }else {
-            expandArray(index, item);
+        }else if(count == length){
+//            expandArray(index, item);
+            int newLength = length * 2;
+            createTemp_ExpandGlobal_CopyBackIntoArray(newLength, length);
+            if (item.getClass() == container[0].getClass()) {
+                if(container[index] == null){
+                    container[index] = item;
+                    count++;
+                } else {
+                    for(int i = count; i > index; i--){
+                        container[i + 1] = container[i];
+                    }
+                    container[index] = item;
+                    count++;
+                }
+            }else {
+                throw new ClassCastException("Inconsistent object type!");
+            }
+            length = newLength;
+            count++;
         }
     }
 
     private void expandArray(int index, Object item) {
         int newLength = length * 2;
-        createTempArray(newLength, length);
-        container[index] = item;
+        createTemp_ExpandGlobal_CopyBackIntoArray(newLength, length);
+        if (item.getClass() == container[0].getClass()) {
+            if(container[index] == null){
+                container[index] = item;
+                count++;
+            } else {
+                for(int i = count; i > index; i--){
+                    container[i + 1] = container[i];
+                }
+                container[index] = item;
+                count++;
+            }
+        }else {
+            throw new ClassCastException("Inconsistent object type!");
+        }
         length = newLength;
         count++;
     }
 
-    private void createTempArray(int newLength, int length) {
+    private void createTemp_ExpandGlobal_CopyBackIntoArray(int newLength, int length) {
         Object[] tempArray = new Object[length];
         for(int i = 0; i < length; i++){
             tempArray[i] = container[i];
@@ -90,17 +141,15 @@ public class ArrayList {
             for (int i = index; i < newLength; i++) {
                 container[i] = container[i + 1];
             }
-            createTempArray(newLength, newLength);
+            createTemp_ExpandGlobal_CopyBackIntoArray(newLength, newLength);
             length = newLength;
             count--;
         }
     }
 
     public boolean contains(Object element){
-        boolean isContain;
         for(int i = 0; i < length; i++){
             if(element.equals(container[i])) {
-                isContain = true;
                 this.isContain = true;
                 break;
             } else {

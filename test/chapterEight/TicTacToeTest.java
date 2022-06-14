@@ -295,13 +295,13 @@ public class TicTacToeTest {
         Player2 player2 = new Player2();
         player1.play(1, ticTacToe.getBoard());
         player2.play(2, ticTacToe.getBoard());
-        player1.play(3, ticTacToe.getBoard());
-        player2.play(6, ticTacToe.getBoard());
-        player1.play(9, ticTacToe.getBoard());
-        player2.play(7, ticTacToe.getBoard());
-        player1.play(8, ticTacToe.getBoard());
-        player2.play(4, ticTacToe.getBoard());
         player1.play(5, ticTacToe.getBoard());
+        player2.play(3, ticTacToe.getBoard());
+        player1.play(7, ticTacToe.getBoard());
+        player2.play(4, ticTacToe.getBoard());
+        player1.play(8, ticTacToe.getBoard());
+        player2.play(9, ticTacToe.getBoard());
+        player1.play(6, ticTacToe.getBoard());
         ticTacToe.gameStatus();
         assertTrue(ticTacToe.isDraw());
     }

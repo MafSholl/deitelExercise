@@ -71,6 +71,10 @@ public class TicTacToe {
     }
 
     public Value getElementAtIndex(int index) {
+        return getValueAt(index, board);
+    }
+
+    static Value getValueAt(int index, Value[][] board) {
         if (index == 1) return board[0][0];
         else if (index == 2) return board[0][1];
         else if (index == 3) return board[0][2];
@@ -84,120 +88,78 @@ public class TicTacToe {
     }
 
     public void gameStatus() {
-        if (isGame) {
-            if (counter < 9) {
-                if (!isPlayer1Win) {
-                    if ((board[0][0] == X && board[0][1] == X && board[0][2] == X) || (board[0][0] == X && board[1][0]== X && board[2][0] == X) || (board[0][0] == X && board[1][1]==X && board[2][2] == X)) {
-                            isPlayer1Win = true;
-                            isGame = false;
-                        }
-                    if(board[0][0] == X){
-                    } else if (board[0][2] == Value.X) {
-                        if (board[1][2] == Value.X) {
-                            if (board[2][2] == Value.X) {
-                                isPlayer1Win = true;
-                                isGame = false;
-                            }
-                        } else if (board[1][1] == X) {
-                            if (board[2][0] == Value.X) {
-                                isPlayer1Win = true;
-                                isGame = false;
-                            }
-                        }
-                    } else if (board[2][0] == Value.X) {
-                        if (board[2][1] == Value.X) {
-                            if (board[2][2] == Value.X) {
-                                isPlayer1Win = true;
-                                isGame = false;
-                            }
-                        }
-                    } else if (board[1][0] == Value.X) {
-                        if (board[1][1] == Value.X) {
-                            if (board[1][2] == Value.X) {
-                                isPlayer1Win = true;
-                                isGame = false;
-                            }
-                        }
-                    } else if (board[0][1] == Value.X) {
-                        if (board[1][1] == Value.X) {
-                            if (board[2][1] == Value.X) {
-                                isPlayer1Win = true;
-                                isGame = false;
-                            }
-                        }
-                    }
-                }
-                if (!isPlayer2Win) {
-                    if (board[0][0] == Value.O) {
-                        if (board[0][1] == Value.O) {
-                            if (board[0][2] == Value.O) {
-                                isPlayer2Win = true;
-                                isGame = false;
-                            }
-                        } else if (board[1][0] == Value.O) {
-                            if (board[2][0] == Value.O) {
-                                isPlayer2Win = true;
-                                isGame = false;
-                            }
-                        } else if (board[1][1] == Value.O) {
-                            if (board[2][2] == Value.O) {
-                                isPlayer2Win = true;
-                                isGame = false;
-                            }
-                        }
-                    } else if (board[0][2] == Value.O) {
-                        if (board[1][2] == Value.O) {
-                            if (board[2][2] == Value.O) {
-                                isPlayer2Win = true;
-                                isGame = false;
-                            }
-                        } else if (board[1][1] == O) {
-                            if (board[2][0] == Value.O) {
-                                isPlayer2Win = true;
-                                isGame = false;
-                            }
-                        }
-                    } else if (board[2][0] == Value.O) {
-                        if (board[2][1] == Value.O) {
-                            if (board[2][2] == Value.O) {
-                                isPlayer2Win = true;
-                                isGame = false;
-                            }
-                        }
-                    } else if (board[1][0] == Value.O) {
-                        if (board[1][1] == Value.O) {
-                            if (board[1][2] == Value.O) {
-                                isPlayer2Win = true;
-                                isGame = false;
-                            }
-                        }
-                    } else if (board[0][1] == Value.O) {
-                        if (board[1][1] == Value.O) {
-                            if (board[2][1] == Value.O) {
-                                isPlayer2Win = true;
-                                isGame = false;
-                            }
-                        }
-                    }
-                }
-            } else {
-                drawCalculator();
-            }
+        playerOneWinChecker();
+        playerTwoWinSetter();
+        drawCalculator();
+
+    }
+
+    private void playerTwoWinSetter() {
+        if (board[0][0] == O && board[0][1] == O && board[0][2] == O) {
+            isPlayer2Win = true;
+            isGame = false;
+        }else if (board[1][0] == O && board[1][1]== O && board[1][2] == O){
+            isPlayer2Win = true;
+            isGame = false;
+        }else if (board[2][0] == O && board[2][1]==O && board[2][2] == O) {
+            isPlayer2Win = true;
+            isGame = false;
+        }else if (board[0][0] == O && board[1][0]== O && board[2][0] == O) {
+            isPlayer2Win = true;
+            isGame = false;
+        }else if (board[0][1] == O && board[1][1]== O && board[2][1] == O) {
+            isPlayer2Win = true;
+            isGame = false;
+        }else if (board[0][2] == O && board[1][2]== O && board[2][2] == O) {
+            isPlayer2Win = true;
+            isGame = false;
+        }else if (board[0][0] == O && board[1][1]== O && board[2][2] == O) {
+            isPlayer2Win = true;
+            isGame = false;
+        }else if (board[0][2] == O && board[1][1]==O && board[2][0] == O) {
+            isPlayer2Win = true;
+            isGame = false;
+        }
+    }
+
+    private void playerOneWinChecker() {
+        if (board[0][0] == X && board[0][1] == X && board[0][2] == X) {
+                isPlayer1Win = true;
+                isGame = false;
+        }else if (board[1][0] == X && board[1][1]== X && board[1][2] == X){
+            isPlayer1Win = true;
+            isGame = false;
+        }else if (board[2][0] == X && board[2][1]==X && board[2][2] == X) {
+            isPlayer1Win = true;
+            isGame = false;
+        }else if (board[0][0] == X && board[1][0]==X && board[2][0] == X) {
+            isPlayer1Win = true;
+            isGame = false;
+        }else if (board[0][1] == X && board[1][1]==X && board[2][1] == X) {
+            isPlayer1Win = true;
+            isGame = false;
+        }else if (board[0][2] == X && board[1][2]==X && board[2][2] == X) {
+            isPlayer1Win = true;
+            isGame = false;
+        }else if (board[0][0] == X && board[1][1]==X && board[2][2] == X) {
+            isPlayer1Win = true;
+            isGame = false;
+        }else if (board[0][2] == X && board[1][1]==X && board[2][0] == X) {
+            isPlayer1Win = true;
+            isGame = false;
         }
     }
 
     private void drawCalculator() {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j] != EMPTY) {
-                    if (!isPlayer1Win) {
-                        if (!isPlayer2Win) {
-                            isDraw = true;
-                        }
-
-                    }
+                if (board[i][j] == EMPTY) {
+                    break;
                 }
             }
+        }
+        if (!isPlayer1Win && !isPlayer2Win) {
+                isDraw = true;
         }
     }
 
