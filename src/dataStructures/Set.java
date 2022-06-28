@@ -28,9 +28,16 @@ public class Set {
     }
 
     public void addAll(Object[] collection){
+        boolean isContain;
         for(int i = 0; i < collection.length; i++){
-            arrayList.add(collection[i]);
-            count++;
+            isContain = false;
+            for(int j = 0; j < arrayList.size(); j++){
+                if(collection[i] == arrayList.get(j)){
+                    isContain = true;
+                    break;
+                }
+            }
+            if(!isContain) arrayList.add(collection[i]);
         }
     }
 
@@ -72,6 +79,7 @@ public class Set {
             for (int i = 0; i < arrayList.size(); i++){
                 if (arrayList.get(i) == o) {
                     arrayList.remove(i);
+                    break;
                 }
             }
             return true;
@@ -82,8 +90,8 @@ public class Set {
     public boolean removeAll(Object[] collection) {
         boolean returnee = false;
         for (int i = 0; i < collection.length; i++) {
+            returnee = false;
             for (int j = 0; j < arrayList.size(); j++) {
-                returnee = false;
                 if (collection[i] == arrayList.get(j)) {
                     returnee = true;
                     break;

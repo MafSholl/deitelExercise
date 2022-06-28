@@ -117,7 +117,6 @@ public class ArrayList {
             throw new ClassCastException("Inconsistent object type!");
         }
         length = newLength;
-        count++;
     }
 
     private void createTemp_ExpandGlobal_CopyBackIntoArray(int newLength, int length) {

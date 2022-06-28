@@ -113,7 +113,7 @@ public class SetTest {
         Object[] test = {1, 8, 4, 3, 2, 5, 6, 7};
         set.addAll(test);
         Object [] toBeRemoved = {3, 2, 4, 7};
-        Object [] toBeRemoved2 = {11, 1, 4, 7};
+        Object [] toBeRemoved2 = {1, 11, 8, 6};
         assertTrue(set.removeAll(toBeRemoved));
         assertFalse(set.removeAll(toBeRemoved2));
 
@@ -122,10 +122,20 @@ public class SetTest {
     }
 
     @Test
-    public void setCannotTakeDoubleValueTest(){
+    public void setCannotAddExistingValueTest(){
         Object[] test = {1, 8, 4, 3, 2, 5, 6, 7};
         set.addAll(test);
         assertFalse(set.add(1));
         assertTrue(set.add(20));
+        assertEquals(9, set.size());
+    }
+
+    @Test
+    public void setAddAllMethodCannotAddDoubleValueTest(){
+        Object[] set1 = {1, 8, 4, 3, 2, 5, 6, 7};
+        set.addAll(set1);
+        Object[] set2 = {8, 11, 9, 4, 10, 3, 15, 20, 5};
+        set.addAll(set2);
+        assertEquals(13, set.size());
     }
 }

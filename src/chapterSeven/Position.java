@@ -11,6 +11,7 @@ public class Position {
     }
 
     public void move(int steps) {
+
         this.column = steps-1;
     }
 
