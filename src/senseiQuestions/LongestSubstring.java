@@ -26,7 +26,7 @@ public class LongestSubstring {
                 }
                 sConcat.append(sArrays[i]);
                 System.out.println("sConcat after append " + sConcat);
-                sConcat.delete(sConcat.indexOf(sArrays[i]), sConcat.indexOf(sArrays[i]));
+                sConcat.delete(0, sConcat.indexOf(sArrays[i])+1);
                 System.out.println("sconcat after delete: " + sConcat);
                 System.out.println("Third if here");
             }
