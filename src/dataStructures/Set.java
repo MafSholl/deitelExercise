@@ -37,7 +37,10 @@ public class Set {
                     break;
                 }
             }
-            if(!isContain) arrayList.add(collection[i]);
+            if(!isContain) {
+                arrayList.add(collection[i]);
+                count++;
+            }
         }
     }
 
@@ -88,18 +91,20 @@ public class Set {
     }
 
     public boolean removeAll(Object[] collection) {
-        boolean returnee = false;
+        boolean collectionItemChecker = false;
+        //collectionItemChecker checks if everything in the collection actually
+        // exist in the set before it embarks to delete any of the set content at all
         for (int i = 0; i < collection.length; i++) {
-            returnee = false;
+            collectionItemChecker = false;
             for (int j = 0; j < arrayList.size(); j++) {
                 if (collection[i] == arrayList.get(j)) {
-                    returnee = true;
+                    collectionItemChecker = true;
                     break;
                 }
             }
-            if (!returnee) break;
+            if (!collectionItemChecker) break;
         }
-        if (returnee){
+        if (collectionItemChecker){
             for(int i = 0; i < collection.length; i++){
                 for (int j = 0; j < arrayList.size(); j++){
                     if (collection[i] == arrayList.get(j)) {

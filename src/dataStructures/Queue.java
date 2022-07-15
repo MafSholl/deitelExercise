@@ -28,7 +28,7 @@ public class Queue {
         return queue[index];
     }
 
-    public Object peep() {
+    public Object peek() {
         return queue[0];
     }
 

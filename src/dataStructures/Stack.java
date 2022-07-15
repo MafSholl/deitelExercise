@@ -42,7 +42,7 @@ public class Stack {
         return stack[counter];
     }
 
-    public Object peep() {
+    public Object peek() {
         return stack[counter-1];
     }
 }

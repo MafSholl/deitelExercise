@@ -81,7 +81,7 @@ public class StackTest {
         stack.push(34);
         stack.push(24);
         stack.push(14);
-        assertEquals(14, stack.peep());
+        assertEquals(14, stack.peek());
     }
 
     @Test

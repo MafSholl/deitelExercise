@@ -51,6 +51,7 @@ public class SetTest {
         set.add("vibrator");
         set.add("bra");
         set.add("panties");
+        assertEquals("panties", set.get(3));
         set.add("chocolate");
         set.add("pokeman");
         assertEquals("chocolate", set.get(4));

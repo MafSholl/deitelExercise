@@ -25,11 +25,11 @@ public class ArrayList {
     public Object get(Object element){
         Object returnee = null;
         if (length == 0) throw new NullPointerException("Item does not exist in the index entered");
-        for (int i  = 0; i < count; i++){
+        for (int i = 0; i < count; i++){
             if(container[i] == element) {
                 returnee = container[i];
                 break;
-            };
+            }
         }
         return returnee;
     }
@@ -54,7 +54,7 @@ public class ArrayList {
         }
     }
 
-    public void add (int index, Object item){
+public void add (int index, Object item){
         if(count == 0){
             length = 5;
             container = new Object[length];

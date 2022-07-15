@@ -63,7 +63,7 @@ public class QueueTest {
         queue.queue(5);
         queue.queue(8);
         queue.queue(4);
-        Object peeped = queue.peep();
+        Object peeped = queue.peek();
         assertEquals(5, peeped);
     }
 
