@@ -12,32 +12,36 @@ public class LongestSubstring {
         int count = 1;
 
         for (int i = 0; i < s.length(); i++) {
-            System.out.println("Loop " + count);
+            System.out.println("Loop " + (i+1));
             if (sConcat.isEmpty()) {
                 sConcat.append(sArrays[i]);
-                System.out.println("First if here");
-            }else if (!sConcat.toString().contains(sArrays[i])) {
-                sConcat.append(sArrays[i]);
-                System.out.println("Second if here");
-            }else {
-//                sConcat.deleteCharAt(sConcat.indexOf(sArrays[i])).append(sArrays[i]);
                 if (sConcat.length() > longestSubstring.length()) {
                     longestSubstring = sConcat.toString();
                 }
+            }else if (!sConcat.toString().contains(sArrays[i])) {
                 sConcat.append(sArrays[i]);
-                System.out.println("sConcat after append " + sConcat);
-                sConcat.delete(0, sConcat.indexOf(sArrays[i])+1);
-                System.out.println("sconcat after delete: " + sConcat);
-                System.out.println("Third if here");
+                if (sConcat.length() > longestSubstring.length()) {
+                    longestSubstring = sConcat.toString();
+                }
+            }else {
+                if (sConcat.length() > longestSubstring.length()) {
+                    longestSubstring = sConcat.toString();
+                }
+                sConcat.delete(0, sConcat.indexOf(sArrays[i])+1).append(sArrays[i]);
             }
             System.out.println(sConcat);
             System.out.println();
              count++;
         }
-//        System.out.println(sConcat);
         System.out.println(longestSubstring.length());
+        System.out.println(longestSubstring);
+
+
+
 
     }
+
+
 
     public static void main(String[] args) {
         solution();

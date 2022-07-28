@@ -4,14 +4,14 @@ public class LinkedList {
 
 
     private class Node {
-        private Object value;
+        private Object data;
         private Node previous;
         private Node next;
 
         public Node(){
         }
-        public Node(Object value){
-            this.value =  value;
+        public Node(Object data){
+            this.data = data;
         }
     }
 
@@ -59,7 +59,7 @@ public class LinkedList {
         for(int i = 1; i <= index; i++){
             node = node.next;
             if (i == index) {
-                node.value = node.next.value;
+                node.data = node.next.data;
                 node.next = null;
             }
         }
@@ -98,9 +98,9 @@ public class LinkedList {
             for(int i = 1; i <= index; i++){
                 node = node.next;
             }
-            return node.value;
+            return node.data;
         }
-        return first.value;
+        return first.data;
     }
 
     public Object getPreviousNodeValueAtNode(int index) {
@@ -109,21 +109,21 @@ public class LinkedList {
             for (int i = 1; i <= index; i++) {
                 node = node.next;
             }
-            return node.previous.value;
+            return node.previous.data;
         }
         return first.previous;
     }
 
     public Object getFirst() {
-        return first.value;
+        return first.data;
     }
 
     public Object getLast() {
-        return last.value;
+        return last.data;
     }
 
     public Object element() {
-        return first.value;
+        return first.data;
     }
 
 
