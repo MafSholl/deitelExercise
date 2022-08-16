@@ -43,22 +43,27 @@ public class AtmCardValidator {
     public void oddPositionedNumberSum() {
         int i = 0;
         int oddNumberSum = 0;
+        oddNumberSum = getNumberSum(i, oddNumberSum);
+        this.oddNumberSum = oddNumberSum;
+    }
+
+    private int getNumberSum(int i, int numberSum) {
         int productDoubleOfNumbers;
         while(i < userCardNumber.length()){
             productDoubleOfNumbers  = Integer.parseInt(String.valueOf(userCardNumber.charAt(i)))*2;
             if(productDoubleOfNumbers <= 9){
-                oddNumberSum += productDoubleOfNumbers;
+                numberSum += productDoubleOfNumbers;
             }else{
                 int productCharactersSum = 0;
                 for(int j = 0; j < 2; j++){
                     String stringProductDoubleOfNumbers = String.valueOf(productDoubleOfNumbers);
                     productCharactersSum += Integer.parseInt(String.valueOf(stringProductDoubleOfNumbers.charAt(j)));
                 }
-                oddNumberSum += productCharactersSum;
+                numberSum += productCharactersSum;
             }
             i+=2;
         }
-        this.oddNumberSum = oddNumberSum;
+        return numberSum;
     }
 
     public int getOddPositionSum() {
@@ -68,21 +73,7 @@ public class AtmCardValidator {
     public void evenPositionedNumberSum() {
         int i = 1;
         int evenNumberSum = 0;
-        int productDoubleOfNumbers;
-        while(i < userCardNumber.length()){
-            productDoubleOfNumbers  = Integer.parseInt(String.valueOf(userCardNumber.charAt(i)))*2;
-            if(productDoubleOfNumbers <= 9){
-            evenNumberSum += productDoubleOfNumbers;
-            }else{
-                int productCharactersSum = 0;
-                for(int j = 0; j < 2; j++){
-                    String stringProductDoubleOfNumbers = String.valueOf(productDoubleOfNumbers);
-                    productCharactersSum += Integer.parseInt(String.valueOf(stringProductDoubleOfNumbers.charAt(j)));
-                }
-                evenNumberSum += productCharactersSum;
-            }
-            i+=2;
-        }
+        evenNumberSum = getNumberSum(i, evenNumberSum);
         this.evenNumberSum = evenNumberSum;
     }
 
