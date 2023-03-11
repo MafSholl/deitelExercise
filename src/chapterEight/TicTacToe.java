@@ -123,7 +123,7 @@ public class TicTacToe {
     }
 
     private void playerOneWinChecker() {
-        if (board[0][0] == X && board[0][1] == X && board[0][2] == X) {
+       if (board[0][0] == X && board[0][1] == X && board[0][2] == X) {
                 isPlayer1Win = true;
                 isGame = false;
         }else if (board[1][0] == X && board[1][1]== X && board[1][2] == X){
@@ -150,7 +150,44 @@ public class TicTacToe {
         }
     }
 
-    private void drawCalculator() {
+    public void playerOneWinnerCheck() {
+
+        if (board[0][2] == X && board[1][1]==X && board[2][0] == X) {
+            isPlayer1Win = true;
+            isGame = false;
+        }
+        for (int i = 0; i < board.length; i++) {
+            int counter1 = 0;
+            int counter2 = 0;
+            int counter3 = 0;
+            for (int j = 0; j < board.length; j++) {
+                if (board[i][j] == X) counter1++;
+                if (board[j][i] == X) counter2++;
+            }
+            if (board[i][i] == X) counter3++;
+
+            if(counter1 == 3 || counter2 == 3 || counter3 == 3) {
+                isPlayer1Win = true;
+                isGame = false;
+                break;
+            }
+        }
+    }
+
+//      if(board[0][i] == X) {
+//                counter1++;
+//            }
+//            if (board[i][0] == X) {
+//                counter2++;
+//            }
+//            if (counter2 == 3) {
+//                isPlayer1Win = true;
+//                isGame = false;
+//                break;
+//            }
+
+
+        private void drawCalculator() {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] == EMPTY) {

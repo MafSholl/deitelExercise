@@ -11,7 +11,6 @@ public class RegexText {
     }
 
     public static void main(String[] args) {
-        RegexText regexTest = new RegexText();
-        System.out.println(regexTest.validateLastName("adesiAH"));
+        System.out.println(RegexText.validateLastName("AAH"));
     }
 }
