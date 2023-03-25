@@ -29,14 +29,6 @@ public class Intro {
         boolean subtraction = Pattern.matches("[a-z&&[^m-p]]", "p");
         boolean subtraction2 = Pattern.matches("[a-f&&[^a-c]&&[^e]]", "d");
 
-        //Boundary Matchers
-        boolean hello = Pattern.matches("^Hello$", "Hello");
-        boolean namasteHello = Pattern.matches("^Hello$", "Namaster! Hello");
-        boolean helloNamaste = Pattern.matches("^Hello$", "Hello Namaste");
-        boolean helloNamasteHello = Pattern.matches("^Hello", "Hello Namaste Hello");
-        boolean helloNamasteReggie = Pattern.matches("^Hello\\s\\w\\sHello$", "Hello Namaste Hello");
-
-
-        System.out.println(helloNamasteHello);
+        System.out.println(subtraction2);
     }
 }
